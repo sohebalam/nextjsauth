@@ -1,7 +1,5 @@
 import { Button, Container } from "@material-ui/core"
 
-import { fetcher } from "../lib/fetch"
-import { useCurrentUser } from "../lib/user"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useCallback, useRef, useState } from "react"
