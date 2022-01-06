@@ -8,7 +8,6 @@ import theme from "../theme"
 import { wrapper } from "../redux/store"
 // import Header from "../components/Header"
 // import { Container } from "@material-ui/core"
-import createEmotionCache from "./createEmotionCache"
 
 // import Footer from "../components/Footer"
 import Layout from "../components/Layout/Layout"
@@ -24,8 +23,6 @@ function MyApp({ Component, pageProps }) {
     }
   }, [])
 
-  const cache = createEmotionCache()
-
   return (
     <>
       <Head>
@@ -35,19 +32,18 @@ function MyApp({ Component, pageProps }) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <CacheProvider value={cache}>
-        <ThemeProvider theme={theme}>
-          {/* <Container> */}
-          <CssBaseline />
 
-          <Layout>
-            <StyledEngineProvider injectFirst>
-              <Component {...pageProps} />
-            </StyledEngineProvider>
-          </Layout>
-          {/* </Container> */}
-        </ThemeProvider>
-      </CacheProvider>
+      <ThemeProvider theme={theme}>
+        {/* <Container> */}
+        <CssBaseline />
+
+        <Layout>
+          <StyledEngineProvider injectFirst>
+            <Component {...pageProps} />
+          </StyledEngineProvider>
+        </Layout>
+        {/* </Container> */}
+      </ThemeProvider>
     </>
   )
 }
